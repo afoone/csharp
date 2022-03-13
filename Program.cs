@@ -8,10 +8,9 @@ namespace hola_mundo
         {
 
 
-            Point p = new Point(2, 3);
-            Point p2 = new Point(-4, 0);
-            Console.WriteLine($"({p.X}, {p.Y})");
-            Console.WriteLine($"({p2.X}, {p2.Y})");
+            Color color = new Color(22, 33, 44);
+            Color blanco = Color.WHITE;
+            Console.WriteLine($"{color.red}-{color.green}-{color.blue}");
 
 
         }
@@ -31,6 +30,24 @@ namespace hola_mundo
         }
 
         public Point() : this(0, 0) { }
+
+    }
+
+    internal class Color
+    {
+        public double red { get; }
+        public double green { get; }
+        public double blue { get; }
+
+        public static readonly Color WHITE = new Color(255, 255, 255);
+        public static readonly Color BLACK = new Color(0, 0, 0);
+
+        public Color(double red, double green, double blue )
+        {
+            this.red = red;
+            this.green = green;
+            this.blue = blue;
+        }
 
     }
 }
