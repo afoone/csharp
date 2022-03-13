@@ -6,60 +6,31 @@ namespace hola_mundo
     {
         public static void Main(string[] args)
         {
-            string response = "";
-            Chest chest = Chest.Locked;
-
-            while (response != "exit")
-            {
-                string state = "";
-
-                switch (chest)
-                {
-                    case Chest.Locked:
-                        state = "cerrado con llave";
-                        break;
-                    case Chest.Closed:
-                        state = "cerrado";
-                        break;
-                    case Chest.Open:
-                        state = "abierto";
-                        break;
-                }
-
-                Console.Write($"Está {state}, ¿Qué haces?");
-                response = Console.ReadLine();
-
-                switch (response)
-                {
-                    case "unlock":
-                        if (chest == Chest.Locked)
-                            chest = Chest.Closed;
-                        break;
-                    case "open":
-                        if (chest == Chest.Closed)
-                            chest = Chest.Open;
-                        break;
-                    case "close":
-                        if (chest == Chest.Open)
-                            chest = Chest.Closed;
-                        break;
-                    case "lock":
-                        if (chest == Chest.Closed)
-                            chest = Chest.Locked;
-                        break;
-                }
 
 
-            }
+            Point p = new Point(2, 3);
+            Point p2 = new Point(-4, 0);
+            Console.WriteLine($"({p.X}, {p.Y})");
+            Console.WriteLine($"({p2.X}, {p2.Y})");
 
-            Console.WriteLine("juego finalizado");
-        
-
-          
 
         }
 
-        enum Chest { Open, Closed, Locked }; // los nuevo tipos tienen que ir detrás de código o en otro fichero
+
+    }
+
+    internal class Point
+    {
+        public double X { get; set; }
+        public double Y { get; set; }
+
+        public Point(double x, double y)
+        {
+            X = x;
+            Y = y;
+        }
+
+        public Point() : this(0, 0) { }
 
     }
 }
